@@ -26,12 +26,18 @@ function populateRecipes(recipes) {
 
     if (alphabeticalList) {
         sortAndDisplayRecipes(recipes, "name", alphabeticalList);
+        } else {
+        console.warn("Alphabetical list element not found.");
     }
     if (authorList) {
         sortAndDisplayRecipes(recipes, "author", authorList);
+        } else {
+        console.warn("Author list element not found.");
     }
     if (cultureList) {
         sortAndDisplayRecipes(recipes, "culture", cultureList);
+        } else {
+        console.warn("Author list element not found.");
     }
 }
 
