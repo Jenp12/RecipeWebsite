@@ -7,7 +7,7 @@ async function fetchRecipes() {
         const data = await response.json();
         
 const recipes = data.results.map(recipe => ({
-            name: recipe.title,
+            name: recipe.title || "Unknown Name",
             author: recipe.creditsText || "Unknown Author",
             culture: recipe.cuisines[0] || "Unknown Culture"
         }));
@@ -36,8 +36,15 @@ function populateRecipes(recipes) {
 }
 
 function sortAndDisplayRecipes(recipes, sortBy, targetElement) {
-    const sorted = [...recipes].sort((a, b) => a[sortBy].localeCompare(b[sortBy]));
-    targetElement.innerHTML = sorted.map(recipe => `<li>${recipe.name} by ${recipe.author} (${recipe.culture})</li>`).join('');
+    const sorted = [...recipes].sort((a, b) => {
+        const valA = a[sortBy] || ""; // Fallback to empty string
+        const valB = b[sortBy] || ""; // Fallback to empty string
+        return valA.localeCompare(valB);
+    });
+
+    targetElement.innerHTML = sorted
+        .map(recipe => `<li>${recipe.name} by ${recipe.author} (${recipe.culture})</li>`)
+        .join('');
 }
 
 // Fetch recipes when the page loads
