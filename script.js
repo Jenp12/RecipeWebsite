@@ -25,13 +25,13 @@ function populateRecipes(recipes) {
     const cultureList = document.getElementById("culture-list");
 
     if (alphabeticalList) {
-        displaySortedRecipes(recipes, "name", alphabeticalList);
+        sortAndDisplayRecipes(recipes, "name", alphabeticalList);
     }
     if (authorList) {
-        displaySortedRecipes(recipes, "author", authorList);
+        sortAndDisplayRecipes(recipes, "author", authorList);
     }
     if (cultureList) {
-        displaySortedRecipes(recipes, "culture", cultureList);
+        sortAndDisplayRecipes(recipes, "culture", cultureList);
     }
 }
 
