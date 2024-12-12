@@ -1,7 +1,7 @@
 const huggingFaceToken = "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"; 
 
 async function getRecipeResponse(question, retries =3, delay = 2000) {
-    const prompt = You are a helpful recipe assistant. Answer questions about cooking recipes.\nUser: ${question};
+    const prompt = 'You are a helpful recipe assistant. Answer questions about cooking recipes.\nUser: ${question}';
     try {
         const response = await fetch("https://api-inference.huggingface.co/status/facebook/blenderbot-400M-distill", {
             method: "POST",
