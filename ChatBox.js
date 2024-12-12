@@ -1,6 +1,6 @@
 const huggingFaceToken = "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";
 
-async function getRecipeResponse(question) {
+async function getRecipeResponse(question, retries =3, delay = 2000) {
     const prompt = `You are a helpful recipe assistant. Answer questions about cooking recipes.\nUser: ${question}`;
     try {
         const response = await fetch("https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill", {
@@ -14,6 +14,12 @@ async function getRecipeResponse(question) {
 
         const data = await response.json();
         console.log("API Response:", data); // Debugging
+
+        if (response.status === 503 && retries > 0) {
+            console.warn("Model is loading. Retrying...");
+            await new Promise(resolve => setTimeout(resolve, delay)); // Wait before retrying
+            return getRecipeResponse(question, retries - 1, delay);
+        }
 
         if (data.error) {
             console.error("API Error:", data.error);
