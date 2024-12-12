@@ -33,6 +33,18 @@ async function getRecipeResponse(question, retries =3, delay = 2000) {
     }
 }
 
+async function isModelReady() {
+    const response = await fetch("https://api-inference.huggingface.co/status/facebook/blenderbot-400M-distill", {
+        headers: {
+            Authorization: `Bearer ${huggingFaceToken}`,
+        },
+    });
+    const data = await response.json();
+    console.log("Model Status:", data); // Debugging
+    return data.loading === false;
+}
+
+
 document.getElementById("send-btn").addEventListener("click", async () => {
     const userInput = document.getElementById("chat-input").value.trim();
     if (!userInput) return;
