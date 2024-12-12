@@ -28,7 +28,7 @@ async function getRecipeResponse(question) {
                 Authorization: `Bearer ${openaiApiKey}`,
             },
             body: JSON.stringify({
-                model: "gpt-3.5-turbo", // Use "gpt-4" if available and you prefer it
+                model: "gpt-3.5-turbo", //maybe 4?
                 messages: [
                     {
                         role: "system",
@@ -39,12 +39,20 @@ async function getRecipeResponse(question) {
                         content: question,
                     },
                 ],
-                max_tokens: 100, // Adjust token limit as needed
-                temperature: 0.7, // Adjust creativity level
+                max_tokens: 100, // maybe change num 
+                temperature: 0.7, 
             }),
         });
 
         const data = await response.json();
+        if (!response.ok) {
+            throw new Error(`API error: ${data.error?.message || response.statusText}`);
+        }
+
+        if (!data.choices || data.choices.length === 0) {
+            throw new Error("No response from the API");
+        }
+
         return data.choices[0].message.content.trim();
     } catch (error) {
         console.error("Error fetching recipe response:", error);
