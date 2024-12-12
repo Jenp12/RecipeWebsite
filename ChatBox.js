@@ -1,4 +1,4 @@
-const huggingFaceToken = "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"; 
+const huggingFaceToken = "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"; 
 
 async function getRecipeResponse(question, retries =3, delay = 2000) {
     const prompt = You are a helpful recipe assistant. Answer questions about cooking recipes.\nUser: ${question};
