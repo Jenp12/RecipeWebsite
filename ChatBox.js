@@ -3,7 +3,7 @@ const huggingFaceToken = "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";
 async function getRecipeResponse(question, retries =3, delay = 2000) {
     const prompt = `You are a helpful recipe assistant. Answer questions about cooking recipes.\nUser: ${question}`;
     try {
-        const response = await fetch("https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill", {
+        const response = await fetch("https://api-inference.huggingface.co/models/microsoft/DialoGPT-medium", {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${huggingFaceToken}`,
@@ -34,7 +34,8 @@ async function getRecipeResponse(question, retries =3, delay = 2000) {
 }
 
 async function isModelReady() {
-    const response = await fetch("https://api-inference.huggingface.co/status/facebook/blenderbot-400M-distill", {
+    const response = await fetch("https://api-inference.huggingface.co/models/microsoft/DialoGPT-medium
+", {
         headers: {
             Authorization: `Bearer ${huggingFaceToken}`,
         },
@@ -52,6 +53,20 @@ document.getElementById("send-btn").addEventListener("click", async () => {
     // Display user input
     const chatOutput = document.getElementById("chat-output");
     chatOutput.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+
+    // Check if the model is ready
+    const ready = await isModelReady();
+    if (!ready) {
+        chatOutput.innerHTML += `<p><strong>Chatbot:</strong> The model is currently loading. Please try again in a few seconds.</p>`;
+        return;
+    }
+
+    const response = await getRecipeResponse(userInput);
+    chatOutput.innerHTML += `<p><strong>Chatbot:</strong> ${response}</p>`;
+    chatOutput.scrollTop = chatOutput.scrollHeight;
+
+    document.getElementById("chat-input").value = "";
+    
 
     // Validate input length
     if (userInput.length > 300) {
