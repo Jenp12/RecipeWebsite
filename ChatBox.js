@@ -1,4 +1,4 @@
-const openaiApiKey = "your-openai-api-key";
+const openaiApiKey = "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";
 
 document.getElementById("send-btn").addEventListener("click", async () => {
     const userInput = document.getElementById("chat-input").value.trim();
