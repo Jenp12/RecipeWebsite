@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -35,7 +36,10 @@ nav a:hover {
 
 h1, h2 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    #recipe-chatbot {
+}
+
+/* Recipe Chatbot Styles */
+#recipe-chatbot {
     margin: 20px;
     padding: 10px;
     border: 2px solid #ccc;
@@ -50,4 +54,64 @@ h1, h2 {
     border-radius: 4px;
 }
 
+/* Login and Sign-Up Form Styles */
+.form-container {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 50px auto; /* Center the form */
 }
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+form p {
+    text-align: center;
+    font-size: 14px;
+}
+
+form p a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+form p a:hover {
+    text-decoration: underline;
+}
+
