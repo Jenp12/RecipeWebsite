@@ -21,16 +21,24 @@ const recipes = data.results.map(recipe => ({
 // Handle Sign-Up Form Submission
 document.getElementById("signup-form")?.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirm-password").value;
 
+    // Validate passwords match
     if (password !== confirmPassword) {
         alert("Passwords do not match!");
         return;
     }
 
+    // Simulate saving user data (you can replace this with API logic)
+    console.log("User registered:", { username, email });
+
     alert("Sign-Up Successful!");
-    // Save user data or redirect
+
+    // Redirect to login page
     window.location.href = "login.html";
 });
 
