@@ -18,6 +18,37 @@ const recipes = data.results.map(recipe => ({
         console.error("Error fetching recipes:", error);
     }
 }
+// Handle Sign-Up Form Submission
+document.getElementById("signup-form")?.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
+
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    alert("Sign-Up Successful!");
+    // Save user data or redirect
+    window.location.href = "login.html";
+});
+
+// Handle Login Form Submission
+document.getElementById("login-form")?.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    // Example: Simple check (replace with actual authentication logic)
+    if (username === "test" && password === "1234") {
+        alert("Login Successful!");
+        // Redirect to a protected page
+        window.location.href = "index.html";
+    } else {
+        alert("Invalid username or password!");
+    }
+});
 
 function populateRecipes(recipes) {
     const alphabeticalList = document.getElementById("recipe-list");
