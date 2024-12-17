@@ -1,9 +1,36 @@
-<section id="christmas-recipes-section">
-    <h2>Random Christmas Recipes</h2>
-    <button id="fetch-christmas-btn" style="padding: 10px; background-color: #ff6f61; color: white; border: none; border-radius: 5px; cursor: pointer;">
-        Get Random Christmas Recipes
-    </button>
-    <div id="christmas-recipes" style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px;">
-        <!-- Christmas recipes will be displayed here -->
-    </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Recipes</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header>
+        <h1>Random Christmas Recipes</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="alphabetical.html">Alphabetical Order</a>
+            <a href="author.html">Author Order</a>
+            <a href="culture.html">Cultural Order</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="christmas-recipes-section">
+            <h2>Get Random Christmas Recipes</h2>
+            <button id="fetch-christmas-btn" style="padding: 10px; background-color: #ff6f61; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Get Random Recipes
+            </button>
+            <div id="christmas-recipes" style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px;">
+                <!-- Recipes will load here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script> 
+</body>
+</html>
+
