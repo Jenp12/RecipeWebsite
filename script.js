@@ -33,7 +33,7 @@ document.getElementById("signup-form")?.addEventListener("submit", function (e) 
     }
 
     // Simulate saving user data (you can replace this with API logic)
-    console.log("User registered:", { username, email });
+    console.log("User registered:", { username, password });
 
     alert("Sign-Up Successful!");
 
