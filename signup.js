@@ -1,5 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-// Handle Sign-Up Form Submission
 document.getElementById("signup-form")?.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -17,10 +15,11 @@ document.getElementById("signup-form")?.addEventListener("submit", function (e) 
     localStorage.setItem("username", username);
     localStorage.setItem("password", password);
 
-    console.log("User registered:", { username: username, password: password }); // Debugging
+    console.log("User registered:", { username, password }); // Debugging
 
     alert("Sign-Up Successful!");
 
     // Redirect to login page
     window.location.href = "login.html";
 });
+
