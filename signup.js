@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 // Handle Sign-Up Form Submission
 document.getElementById("signup-form")?.addEventListener("submit", function (e) {
     e.preventDefault();
